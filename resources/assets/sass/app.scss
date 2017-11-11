@@ -15,7 +15,9 @@
 	width: 500px;
 	height: 500px;
 }
-
+body{
+    background: #fff;
+}
 .body-hor {
     .container {
         width: 100%;
@@ -95,6 +97,52 @@
         span {
             display: block;
             width: 100%;
+        }
+    }
+    .user-hor{
+        width: 70%;
+        margin-top: 25px;
+    }
+    .ava-user-hor{
+        float:left;
+        margin-right: 50px;
+    }
+    .info-user-hor{
+        float: left;
+    }
+    .slogan-hor {
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .thumbnail.clearfix {
+        height: 215px;
+        .img-responsive {
+            float: left;
+            width: 300px;
+            height: 200px;
+        }
+        .caption {
+            overflow: hidden;
+            h3 {
+                margin-top: 0;
+            }
+        }
+    }
+    figure.thumbnail {
+        border: none;
+        background: transparent;
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+    footer{
+        text-align: center;
+        background: #353535;
+        color: #fff;
+        padding: 10px 0;
+        p{
+            margin: 0;
         }
     }
 }
