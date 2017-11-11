@@ -176,6 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Cornford\Googlmapper\MapperServiceProvider::class,
         'GoogleMaps\ServiceProvider\GoogleMapsServiceProvider',
 
     ],
@@ -227,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'GoogleMaps' => 'GoogleMaps\Facade\GoogleMapsFacade',
+        'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
 
     ],
 

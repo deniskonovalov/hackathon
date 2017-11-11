@@ -8350,3 +8350,9 @@ button.close {
   }
 }
 
+#mymap {
+  border: 1px solid red;
+  width: 500px;
+  height: 500px;
+}
+

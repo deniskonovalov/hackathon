@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <h1>Laravel 5 - Multiple markers in google map using gmaps.js</h1>
+    <div style="width: 500px; height: 500px;">
+	       {!! Mapper::render() !!}
+    </div>
 @endsection
