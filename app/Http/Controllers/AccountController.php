@@ -1,22 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
+use User;
 use Illuminate\Http\Request;
-use GoogleMaps;
+use Mapper;
 class AccountController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $response = \GoogleMaps::load('directions')
-            ->setParam([
-                'origin'          => 'place_id:ChIJ685WIFYViEgRHlHvBbiD5nE',
-                'destination'     => 'place_id:ChIJA01I-8YVhkgRGJb0fW4UX7Y',
-            ])
-           ->isLocationOnEdge(55.86483,-4.25161);
+        $user = Auth::user();
 
-    dd( $response  );  // true
-        return view('account.account_page');
+
+        Mapper::map(49.9935, 36.230383);
+        return view('account.account_page',compact('user'));
 
     }
 }

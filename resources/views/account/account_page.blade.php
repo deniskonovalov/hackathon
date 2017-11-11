@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    {{$user->email}}
     <div id="mymap">
-        TEST
+         {!! Mapper::render() !!}
     </div>
 
 @endsection

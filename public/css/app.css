@@ -8356,3 +8356,90 @@ button.close {
   height: 500px;
 }
 
+.body-hor .container {
+  width: 100%;
+  padding: 0 40px;
+}
+
+.body-hor .navbar-default {
+  background-color: #353535;
+  color: #fff;
+  margin-bottom: 0px;
+}
+
+.body-hor .navbar-brand img {
+  width: 75px;
+  margin-top: -10px;
+  z-index: 100;
+}
+
+.body-hor .logo-text {
+  float: left;
+  font-size: 24px;
+  color: #fff;
+  font-style: italic;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+
+.body-hor .logo-text a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.body-hor .map-hor img {
+  width: 100%;
+  height: 500px;
+}
+
+.body-hor .red {
+  background: red;
+}
+
+.body-hor .blue {
+  background: blue;
+}
+
+.body-hor .helper-hor {
+  margin-top: 20px;
+  border-radius: 12px;
+}
+
+.body-hor .control,
+.body-hor .user-info {
+  padding: 10px;
+}
+
+.body-hor .control {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.body-hor .user-info {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 1px solid #ccc;
+  border-left: none;
+  padding-left: 0 20px;
+}
+
+.body-hor .user-ava,
+.body-hor .user-ava + button {
+  width: 150px;
+}
+
+.body-hor .user-ava img {
+  max-width: 100%;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 100px;
+}
+
+.body-hor .login-user-info span,
+.body-hor .user-info span {
+  display: block;
+  width: 100%;
+}
+
