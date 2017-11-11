@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('gmaps', 'HomeController@gmaps');
+Route::get('/', 'HomeController@gmaps');

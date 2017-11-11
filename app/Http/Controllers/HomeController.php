@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -28,7 +28,6 @@ class HomeController extends Controller
 
     public function gmaps()
     {
-    	$locations = DB::table('locations')->get();
-    	return view('gmaps',compact('locations'));
+        return view('gmaps');
     }
 }
