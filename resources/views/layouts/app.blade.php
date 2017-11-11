@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <div id="app">
+    <div class="body-hor" id="app">
         @include('layouts.nav')
 
         @yield('content')

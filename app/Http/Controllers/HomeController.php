@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function gmaps()
     {
-        Mapper::map(53.381128999999990000, -1.470085000000040000);
+        Mapper::map(49.9935, 36.230383);
 
         //return view('map')
         return view('gmaps');

@@ -15,3 +15,86 @@
 	width: 500px;
 	height: 500px;
 }
+
+.body-hor {
+    .container {
+        width: 100%;
+        padding: 0 40px;
+    }
+    .navbar-default {
+        background-color: #353535;
+        color: #fff;
+        margin-bottom: 0px;
+    }
+    .navbar-brand {
+        img {
+            width: 75px;
+            margin-top: -10px;
+            z-index: 100;
+        }
+    }
+    .logo-text {
+        float: left;
+        font-size: 24px;
+        color: #fff;
+        font-style: italic;
+        margin-top: 10px;
+        margin-left: -10px;
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+    .map-hor{
+        img {
+            width: 100%;
+            height: 500px;
+        }
+    }
+    .red {
+        background: red;
+    }
+    .blue {
+        background: blue;
+    }
+    .helper-hor {
+        margin-top: 20px;
+        border-radius: 12px;
+    }
+    .control, .user-info {
+        padding: 10px;
+    }
+    .control {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border: 1px solid #ccc;
+        border-right: none;
+    }
+    .user-info {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border: 1px solid #ccc;
+        border-left: none;
+        padding-left: 0 20px;
+    }
+    // .user-info, .control {
+    //     height: 200px;
+    // }
+    .user-ava, .user-ava + button {
+        width: 150px;
+    }
+    .user-ava {
+        img{
+            max-width: 100%;
+            margin-bottom: 15px;
+            width: 150px;
+            height: 100px;
+        }
+    }
+    .login-user-info, .user-info {
+        span {
+            display: block;
+            width: 100%;
+        }
+    }
+}
