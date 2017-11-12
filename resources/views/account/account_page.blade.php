@@ -28,7 +28,7 @@
                             <span class="name-user-hod">{{$user->name}}</span>
                             <span class="tel-user-hod">{{$user->phone_number}}</span>
                             <span class="auto-number-user-hod">{{$user->auto_number}}</span>
-                            <span class="auto-user-hod">Audi</span>
+                            <span class="auto-user-hod">{{$user->auto_mark}}</span>
                         </div>
                         <textarea class="form-control user-messages" rows="8" cols="80" placeholder="Введите описание вашей поломки ......" ></textarea>
                         <p class="error">Вы не ввели причину поломки!</p>

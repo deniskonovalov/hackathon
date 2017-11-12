@@ -1,5 +1,31 @@
 <div id="map-canvas-{!! $id !!}" style="width: 100%; height: 100%; margin: 0; padding: 0; position: relative; overflow: hidden;"></div>
-
+<?php
+    $event = DB::table('events')->orderBy('id', 'desc')->get();
+    $event = DB::table('users')
+            ->join('events', 'users.id', '=', 'events.user_id')
+            ->select('events.user_id', 'users.name', 'events.body', 'users.phone_number', 'users.auto_number', 'users.auto_mark', 'events.lat','events.lng')
+            ->orderBy('events.id', 'desc')
+            ->get();
+    $tempId = 0;
+    $userInfo =[];
+    $cord = [];
+    foreach ($event as $value) {
+        if($value->user_id != $tempId){
+            $cord[$value->name] = [
+                $value->lat,
+                $value->lng,
+                $value->auto_mark,
+                $value->auto_number,
+                $value->phone_number,
+                $value->body,
+                $value->user_id
+            ];
+        }
+        $tempId = $value->user_id;
+    }
+    $authID = auth()->id();
+    $actionUrl = $_SERVER['REQUEST_URI'];
+?>
 <script type="text/javascript">
 	var maps = [];
 
@@ -63,6 +89,9 @@
 				if (typeof navigator !== 'undefined' && navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(function (position) {
                         setCord(position);
+                        //------------------------------------------------------------------------------------/
+
+                        //------------------------------------------------------------------------------------/
 						map_{!! $id !!}.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 					});
 				}
@@ -99,47 +128,99 @@
 			map: map_{!! $id !!},
 			shapes: shapes
 		});
-        document.getElementById('_myCord').addEventListener('click',function(e){
-            deleteMarkers();
-            var pos = setCord(false,true);
-            pos = {
-                lat: pos.coords.latitude,
-                lng: pos.coords.longitude
-            }
-            var messages;
-            if(!jQuery('.user-messages').val()) {
-                jQuery(".error").hide();
-                jQuery(".error").show();
-                jQuery('.user-messages').css('border','1px solid red');
-            }else {
-                jQuery(".error").hide();
-                jQuery('.user-messages').css('border','1px solid #ccd0d2');
-                messages = jQuery('.user-messages').val();
-                var name = jQuery('.name-user-hod').text();
-                var tel = jQuery('.tel-user-hod').text();
-                var carNumber = jQuery('.auto-number-user-hod').text();
-                var userId = jQuery('.user-id-hod').text();
-
-            }
+        <?php foreach ($cord as $key => $value):?>
             var conten = '';
-            conten = '<h2>'+name+'</h2>';
-            conten+='<p>'+carNumber+'</p>';
-            conten+='<p>'+tel+'</p>';
-            conten+='<p>'+messages+'</p>';
+        <?php if($actionUrl == '/account' && $authID ==$cord[$key][6]):?>
+          var marker = new google.maps.Marker({
+            position: {
+              lat: <?php echo $cord[$key][0]?> ,
+              lng: <?php echo $cord[$key][1] ?>
+            },
+            map: map_{!! $id !!}
+          });
+          conten+='<h2>'+'{!! $key !!}'+'</h2>';
+          conten+='<p>'+'{!! $cord[$key][2] !!}'+'</p>';
+          conten+='<p>'+'{!! $cord[$key][3] !!}'+'</p>';
+          conten+='<p>'+'{!! $cord[$key][4] !!}'+'</p>';
+          conten+='<p>'+'{!! $cord[$key][5] !!}'+'</p>';
+          attachSecretMessage(marker, conten);
+          <?php elseif($actionUrl == '/'):?>
+          var marker = new google.maps.Marker({
+            position: {
+              lat: <?php echo $cord[$key][0]?> ,
+              lng: <?php echo $cord[$key][1] ?>
+            },
+            map: map_{!! $id !!}
+          });
+          conten+='<h2>'+'{!! $key !!}'+'</h2>';
+          conten+='<p>'+'{!! $cord[$key][2] !!}'+'</p>';
+          conten+='<p>'+'{!! $cord[$key][3] !!}'+'</p>';
+          conten+='<p>'+'{!! $cord[$key][4] !!}'+'</p>';
+          conten+='<p>'+'{!! $cord[$key][5] !!}'+'</p>';
+          attachSecretMessage(marker, conten);
+          <?php endif;?>
 
-            var infowindow = new google.maps.InfoWindow({
-              content: conten
-            });
+          <?php endforeach;?>
+        if(document.getElementById('_myCord')){
+            document.getElementById('_myCord').addEventListener('click',function(e){
+                deleteMarkers();
+                var pos = setCord(false,true);
+                pos = {
+                    lat: pos.coords.latitude,
+                    lng: pos.coords.longitude
+                }
+                var messages;
+                if(!jQuery('.user-messages').val()) {
+                    jQuery(".error").hide();
+                    jQuery(".error").show();
+                    jQuery('.user-messages').css('border','1px solid red');
+                }else {
+                    jQuery(".error").hide();
+                    jQuery('.user-messages').css('border','1px solid #ccd0d2');
+                    messages = jQuery('.user-messages').val();
+                    var name = jQuery('.name-user-hod').text();
+                    var tel = jQuery('.tel-user-hod').text();
+                    var carMark = jQuery('.auto-user-hod').text();
+                    var carNumber = jQuery('.auto-number-user-hod').text();
+                    var userId = jQuery('.user-id-hod').text();
+                    jQuery('.user-messages').val('');
 
-            var marker = new google.maps.Marker({
-              position: pos,
-              map: map_{!! $id !!},
-              title: 'SOS'
+
+                }
+                var conten = '';
+                conten = '<h2>'+name+'</h2>';
+                conten+='<p>'+carMark+'</p>';
+                conten+='<p>'+carNumber+'</p>';
+                conten+='<p>'+tel+'</p>';
+                conten+='<p>'+messages+'</p>';
+
+                var infowindow = new google.maps.InfoWindow({
+                  content: conten
+                });
+
+                var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map_{!! $id !!},
+                  title: 'SOS'
+                });
+                marker.addListener('click', function() {
+                  infowindow.open(map, marker);
+                });
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                jQuery.ajax({
+                    type: 'POST',
+                    url: '/addevent',
+                    data: 'title=SOS&lat='+pos.lat+'&lng='+pos.lng+'&body='+messages,
+                    success: function(data){
+                        //location.reload();
+                    }
+                });
             });
-            marker.addListener('click', function() {
-              infowindow.open(map, marker);
-            });
-        });
+        }
         function deleteMarkers() {
             clearMarkers();
             markers = [];
@@ -162,8 +243,15 @@
                 }
             }
         }
+        function attachSecretMessage(marker, secretMessage) {
+            var infowindow = new google.maps.InfoWindow({
+              content: secretMessage
+            });
+            marker.addListener('click', function() {
+              infowindow.open(marker.get('map'), marker);
+            });
+        }
 	}
-
     @if (!$options['async'])
 
 	    google.maps.event.addDomListener(window, 'load', initialize_{!! $id !!});
