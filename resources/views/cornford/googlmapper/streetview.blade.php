@@ -1,7 +1,6 @@
 <div id="map-canvas-{!! $id !!}" style="height: 100%; margin: 0; padding: 0;"></div>
 
 <script type="text/javascript">
-
 	function initialize_{!! $id !!}() {
 		var bounds = new google.maps.LatLngBounds();
 		var position = new google.maps.LatLng({!! $options['latitude'] !!}, {!! $options['longitude'] !!});
@@ -35,5 +34,4 @@
         google.maps.event.addDomListener(window, 'load', initialize_{!! $id !!});
 
     @endif
-
 </script>

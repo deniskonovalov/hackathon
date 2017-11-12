@@ -174,7 +174,7 @@ body{
             resize: vertical;
             padding: 15px;
         }
-        textarea + button {
+        button.btn-danger.sos {
             margin-top: 10px;
             float: right;
             background-color: #dc1b08;
@@ -182,6 +182,10 @@ body{
     }
     .accaunt-maps-info {
         margin-top: 10px;
+    }
+    .error {
+        display: none;
+        color: red;
     }
 
 }

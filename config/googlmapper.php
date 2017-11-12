@@ -60,7 +60,7 @@ return [
     | Automatically add the logged in Google user to Googlmapper displayed map.
     |
     */
-    'user' => false,
+    'user' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     | location.
     |
     */
-    'locate' => false,
+    'locate' => true,
 
     /*
     |--------------------------------------------------------------------------

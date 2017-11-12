@@ -25,13 +25,14 @@
                     <div class="col-md-9 user-accaunt-info">
                         <div class="logged-user-info">
                             <span class="name-user-hod">{{$user->name}}</span>
-                            <span class="tel-user-hod">{{$user->email}}</span>
-                            <span class="auto-number-user-hod">{{$user->name}}</span>
+                            <span class="tel-user-hod">+30390979888</span>
+                            <span class="auto-number-user-hod">АХ555СЗ</span>
                             <span class="auto-user-hod">{{$user->name}}</span>
                         </div>
-                        <textarea class="form-control" rows="8" cols="80" placeholder="Введите описание вашей поломки ......" ></textarea>
+                        <textarea class="form-control user-messages" rows="8" cols="80" placeholder="Введите описание вашей поломки ......" ></textarea>
+                        <p class="error">Вы не ввели причину поломки!</p>
                         {{-- <textarea name="name" rows="10" cols="80" placeholder="Введите описание вашей поломки ......"></textarea> --}}
-                        <button type="button" class="btn btn-danger">Сигнал о помощи</button>
+                        <button type="button" class="btn btn-danger sos" id="_myCord" >Сигнал о помощи</button>
                     </div>
                 </div>
             </div>
