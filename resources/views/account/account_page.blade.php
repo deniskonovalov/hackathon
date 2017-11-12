@@ -11,16 +11,26 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-3 user-accaunt-ava">
-                        <img src="/images/user-1.jpg" alt="user1">
-                        <form class="" action="#" method="post" enctype="multipart/form-data">
-                            <input type="file" id="upload-ava" name="pictures[]" />
-                            <label class="btn btn-default" for="upload-ava">Загрузить аватар</label>
+
+                        <img src="{{ asset("storage/$user->profile_photo") }}" alt="user1">
+
+                        <form class="" action="/add_photo" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <input type="file" id="upload-ava" name="profile_photo" />
+                            <label class="btn btn-default" for="upload-ava">Выбрать</label>
+                            <button type="submit" class="btn btn-success" name="button">Загрузить Аватар</button>
                         </form>
-                        <img src="/images/car-1.jpg" alt="user1">
-                        <form class="" action="#" method="post" enctype="multipart/form-data">
-                            <input type="file" id="upload-ava" name="pictures[]" />
-                            <label class="btn btn-default" for="upload-ava">Загрузить фото авто</label>
+
+
+                        <img src="{{ asset("storage/$user->auto_photo") }}" alt="user1">
+
+                        <form class="" action="/add_car_photo" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <input type="file" id="upload-ava-car" name="auto_photo" />
+                            <label class="btn btn-default" for="upload-ava-car">Выбрать</label>
+                            <button type="submit" class="btn btn-success" name="button">Загрузить Фото Авто</button>
                         </form>
+
                     </div>
                     <div class="col-md-9 user-accaunt-info">
                         <div class="logged-user-info">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mapper;
+use App\Event;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -30,8 +32,11 @@ class HomeController extends Controller
     public function gmaps()
     {
         Mapper::map(49.9935, 36.230383);
-        
-        //return view('map')
-        return view('gmaps');
+
+        $events = Event::latest()->get();
+        $best_helpers = User::latest()->get();
+
+
+        return view('gmaps', compact('events', 'best_helpers'));
     }
 }

@@ -18,9 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/', 'HomeController@gmaps');
 
 Route::get('/account', 'AccountController@index');
+Route::post('/add_photo', 'AccountController@uploadProfilePhoto');
+Route::post('/add_car_photo', 'AccountController@uploadAutoPhoto');
+
 
 Route::post('/addevent', 'EventsController@store');

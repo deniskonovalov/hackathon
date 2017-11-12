@@ -4,6 +4,7 @@
     <div style="width: 100%; height: 500px;">
 	       {!! Mapper::render() !!}
     </div>
+
     <div class="container marketing">
         {{-- <div class="row">
             <div class="col-lg-6">
@@ -70,17 +71,19 @@
                 <span class="bordered-icon"><i class="fa fa-circle-thin"></i></span>
                 </div>
             </section>
-            <div class="col-sm-4">
-                <figure class="thumbnail">
-                    <a href="#"><img src="/images/user_4.jpg" class="img-responsive  img-circle" alt="Image"></a>
-                    <figcaption class="caption text-center">
-                    <h3>Петр Петрович -
-                    <small>Месяца</small>
-                    </h3>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-sm-4">
+
+            @foreach ($best_helpers as $helper)
+                <div class="col-sm-4">
+                    <figure class="thumbnail">
+                        <img src="{{ asset("storage/$helper->profile_photo") }}" class="img-responsive  img-circle" alt="Image">
+                        <figcaption class="caption text-center">
+                        <h3>{{$helper->name}}</h3>
+                        </figcaption>
+                    </figure>
+                </div>
+            @endforeach
+
+            {{-- <div class="col-sm-4">
                 <figure class="thumbnail">
                     <a href="#"><img src="/images/user_5.jpg" class="img-responsive  img-circle" alt="Image"></a>
                     <figcaption class="caption text-center">
@@ -100,7 +103,7 @@
                     </figcaption>
                 </figure>
             </div>
-        </div>
+        </div> --}}
     </div>
     {{-- <div class="slogan-hor">
         <h2>помоги ближнему своему</h2>
