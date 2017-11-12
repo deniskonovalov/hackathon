@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('auto_mark') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Номер Авто</label>
+                            <label for="name" class="col-md-4 control-label">Марка Авто</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="auto_mark" value="{{ old('auto_mark') }}" required autofocus>
