@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@gmaps');
 
 Route::get('/account', 'AccountController@index');
+
+Route::post('/addevent', 'EventsController@store');
