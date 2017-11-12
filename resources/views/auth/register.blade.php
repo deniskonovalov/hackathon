@@ -59,9 +59,23 @@
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="auto_number" value="{{ old('auto_number') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('auto_number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('auto_number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('auto_mark') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Номер Авто</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="auto_mark" value="{{ old('auto_mark') }}" required autofocus>
+
+                                @if ($errors->has('auto_mark'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('auto_mark') }}</strong>
                                     </span>
                                 @endif
                             </div>

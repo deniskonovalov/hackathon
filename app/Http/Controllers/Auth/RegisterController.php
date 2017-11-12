@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'required|string',
             'auto_number' => 'required|string',
-
+            'auto_mark' => 'required|string',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -65,13 +65,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone_number' => $data['phone_number'],
-            'auto_number' => $data['auto_number'],
-            'password' => bcrypt($data['password']),
+            'auto_number'  => $data['auto_number'],
+            'auto_mark'    => $data['auto_mark'],
+            'password'     => bcrypt($data['password']),
         ]);
     }
 }
