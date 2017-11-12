@@ -118,23 +118,23 @@
                 var name = jQuery('.name-user-hod').text();
                 var tel = jQuery('.tel-user-hod').text();
                 var carNumber = jQuery('.auto-number-user-hod').text();
+                var userId = jQuery('.user-id-hod').text();
 
             }
             var conten = '';
             conten = '<h2>'+name+'</h2>';
-            conten+='<p>'+carNumber+'<p>';
-            conten+='<p>'+tel+'<p>';
-            conten+='<p>'+messages+'<p>';
+            conten+='<p>'+carNumber+'</p>';
+            conten+='<p>'+tel+'</p>';
+            conten+='<p>'+messages+'</p>';
 
             var infowindow = new google.maps.InfoWindow({
               content: conten
             });
-            console.log(pos);
 
             var marker = new google.maps.Marker({
               position: pos,
               map: map_{!! $id !!},
-              title: 'Uluru (Ayers Rock)'
+              title: 'SOS'
             });
             marker.addListener('click', function() {
               infowindow.open(map, marker);

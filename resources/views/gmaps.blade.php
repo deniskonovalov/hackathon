@@ -38,21 +38,21 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="thumbnail clearfix">
-                            <a href="#"><img class="img-responsive" src="/images/user-1.jpg" alt="Image"></a>
+                            <a href="#"><img class="img-responsive" src="/images/user_2.jpg" alt="Image"></a>
                             <div class="caption">
                             <h3><a href="#">Петр Петрович</a></h3>
                             <p class="user-tel-hor">7242422474</p>
                             <p class="user-number-auto-hor">AX72637UA</p>
                             <p class="user-auto-hor">Mazda</p>
-                            <p><a class="btn btn-primary" href="#" role="button">Respond</a></p>
+                            <p><a class="btn btn-primary" href="#" role="button">Откликнуться</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="thumbnail clearfix">
-                            <a href="#"><img class="img-responsive" src="/images/user-2.jpg" alt="Image"></a>
+                            <a href="#"><img class="img-responsive" src="/images/user_1.jpg" alt="Image"></a>
                             <div class="caption">
-                            <h3><a href="#">Иван Иванович</a></h3>
+                            <h3><a href="#">Красивая девуля</a></h3>
                             <p class="user-tel-hor">423925752</p>
                             <p class="user-number-auto-hor">AX8378UA</p>
                             <p class="user-auto-hor">Mers</p>
@@ -66,36 +66,36 @@
         <div class="row">
             <section class="section-title">
                 <div class="container text-center">
-                <h2>Помощник</h2>
+                <h2>Люди которые не зассали и помогли</h2>
                 <span class="bordered-icon"><i class="fa fa-circle-thin"></i></span>
                 </div>
             </section>
             <div class="col-sm-4">
                 <figure class="thumbnail">
-                    <a href="#"><img src="/images/user-2.jpg" class="img-responsive  img-circle" alt="Image"></a>
+                    <a href="#"><img src="/images/user_4.jpg" class="img-responsive  img-circle" alt="Image"></a>
                     <figcaption class="caption text-center">
                     <h3>Петр Петрович -
-                    <small>дня</small>
+                    <small>Месяца</small>
                     </h3>
                     </figcaption>
                 </figure>
             </div>
             <div class="col-sm-4">
                 <figure class="thumbnail">
-                    <a href="#"><img src="/images/user-2.jpg" class="img-responsive  img-circle" alt="Image"></a>
+                    <a href="#"><img src="/images/user_5.jpg" class="img-responsive  img-circle" alt="Image"></a>
                     <figcaption class="caption text-center">
                     <h3>Петр Петрович -
-                    <small>недели</small>
+                    <small>Недели</small>
                     </h3>
                     </figcaption>
                 </figure>
             </div>
             <div class="col-sm-4">
                 <figure class="thumbnail">
-                    <a href="#"><img src="/images/user-2.jpg" class="img-responsive  img-circle" alt="Image"></a>
+                    <a href="#"><img src="/images/user_3.jpg" class="img-responsive  img-circle" alt="Image"></a>
                     <figcaption class="caption text-center">
                     <h3>Петр Петрович -
-                    <small>месяца</small>
+                    <small>Дня</small>
                     </h3>
                     </figcaption>
                 </figure>
